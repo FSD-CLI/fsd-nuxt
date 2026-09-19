@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.23.0
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Check whitespace
+        run: git diff --check
+      - name: Run checks
+        run: npm run ci
+      - name: Audit production dependencies
+        run: npm audit --omit=dev

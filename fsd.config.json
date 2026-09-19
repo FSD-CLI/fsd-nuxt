@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/FSD-CLI/cli/main/schema/fsd.config.schema.json",
+  "schemaVersion": 1,
+  "framework": "nuxt",
+  "packageManager": "npm",
+  "apiClient": "fetch",
+  "serverState": "vue-query",
+  "clientState": "pinia",
+  "forms": "vee-validate-zod",
+  "ui": "shared-ui"
+}
