@@ -89,3 +89,18 @@ If this project helps you, you can optionally support its development:
 
 For InstaPay, use the username exactly as shown and verify the recipient details
 in the app before confirming a transfer. Donations are optional.
+
+## Git workflow policy
+
+Git and Conventional Commits remain part of setup. Pre-commit checks staged and
+working-tree whitespace; full builds run in CI. Set `FSD_PRE_COMMIT_LINT=1` to
+run lint on commit or `FSD_PRE_PUSH_CHECKS=1` to run lint/build on push.
+For an intentional emergency bypass, Husky supports `HUSKY=0 git commit ...`;
+CI remains the required quality gate and failures must still be resolved.
+
+Auto-PR and PR labeling are optional. The React template keeps reviewed examples
+in `.github/optional-workflows/`; copy a chosen file into `.github/workflows/`
+to enable it. Auto-PR is manual (`workflow_dispatch`) and needs repository
+permission to create PRs. Labeler needs `.github/labeler.yml`, the labels
+`documentation`, `source`, `ci`, and Actions permission to apply labels.
+Do not enable automation before configuring its permissions and labels.

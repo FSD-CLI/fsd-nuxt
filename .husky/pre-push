@@ -1,2 +1,12 @@
 #!/bin/sh
-npm run build
+set -e
+if [ "${HUSKY:-1}" = "0" ]; then
+  echo "FSD: hook bypassed via HUSKY=0; CI checks still apply."
+  exit 0
+fi
+if [ "${FSD_PRE_PUSH_CHECKS:-0}" = "1" ]; then
+  npm run lint
+  npm run build
+else
+  echo "FSD: quality/build run in CI. Use FSD_PRE_PUSH_CHECKS=1 for local checks."
+fi
