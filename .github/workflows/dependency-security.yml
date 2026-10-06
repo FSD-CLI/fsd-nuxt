@@ -1,0 +1,48 @@
+name: Dependency security
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '21 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  production-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.21.0
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Record dependency inventory
+        run: |
+          status=0
+          npm ls --all --json > dependency-tree.json 2> dependency-tree-errors.log || status=$?
+          echo "$status" > dependency-tree-exit-code.txt
+          # Peer/extraneous diagnostics remain evidence; the audit gate runs separately.
+          test -s dependency-tree.json
+      - name: Enforce production vulnerability policy
+        run: |
+          status=0
+          npm audit --omit=dev --audit-level=high --json > production-audit.log 2>&1 || status=$?
+          cat production-audit.log
+          exit "$status"
+      - name: Preserve dependency inventory
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-security
+          path: |
+            dependency-tree.json
+            dependency-tree-errors.log
+            dependency-tree-exit-code.txt
+            production-audit.log
+          retention-days: 30
