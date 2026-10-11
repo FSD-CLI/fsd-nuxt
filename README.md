@@ -1,10 +1,19 @@
 # FSD Nuxt Starter
 
-Production-ready Nuxt 4 template powered by
+Nuxt 4 starter powered by
 [Feature-Sliced Design](https://feature-sliced.design/).
 
 This repository is the Nuxt template used by
 [`create-fsd-architecture`](https://www.npmjs.com/package/create-fsd-architecture).
+
+## Validation scope
+
+This repository is a starter. Its quality checks cover the template's
+architecture, lint, types and build; application-specific security, backend
+integration, authentication and deployment require separate validation.
+Passing template checks does not certify production deployment. See the
+[current CLI release status](https://github.com/FSD-CLI/cli/blob/main/docs/RELEASE-STATUS.md)
+for tested combinations and unresolved security findings.
 
 ## Create a project
 

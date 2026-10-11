@@ -30,7 +30,7 @@ import { AppBadge } from '@/shared/ui'
         <span class="text-emerald-300">ready to scale.</span>
       </h1>
       <p class="mt-7 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
-        Nuxt-native routing and SSR, complete Feature-Sliced Design layers, and production guardrails from the first commit.
+        Nuxt-native routing and SSR, complete Feature-Sliced Design layers, and local quality checks from the first commit.
       </p>
 
       <div class="mt-10 flex flex-col gap-4 sm:flex-row">
