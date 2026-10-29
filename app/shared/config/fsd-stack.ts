@@ -7,7 +7,7 @@ export const fsdStack = {
   serverState: "vue-query",
   clientState: "pinia",
   forms: "vee-validate-zod",
-  docsUrl: "https://fsd-docs.vercel.app",
+  docsUrl: "https://fsdcli.me",
   commands: {
     install: "npm install",
     dev: "npm run dev",
