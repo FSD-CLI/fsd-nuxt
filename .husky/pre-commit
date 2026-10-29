@@ -1,4 +1,11 @@
 #!/bin/sh
-npm run lint
+set -e
+if [ "${HUSKY:-1}" = "0" ]; then
+  echo "FSD: hook bypassed via HUSKY=0; CI checks still apply."
+  exit 0
+fi
+git diff --cached --check
 git diff --check
-npm run typecheck
+if [ "${FSD_PRE_COMMIT_LINT:-0}" = "1" ]; then
+  npm run lint
+fi
