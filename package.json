@@ -12,6 +12,8 @@
     "ci": "npm run fsd:check && npm run lint && npm run typecheck && npm run build",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "audit": "node scripts/audit-production.mjs",
+    "test:audit-policy": "node --test tests/audit-policy.test.mjs",
     "postinstall": "nuxt prepare",
     "prepare": "husky"
   },

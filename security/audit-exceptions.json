@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "gate": "high",
+  "exceptions": [
+    {
+      "advisory": "GHSA-mrhx-c7xc-m3w5",
+      "url": "https://github.com/advisories/GHSA-mrhx-c7xc-m3w5",
+      "package": "zod",
+      "severity": "high",
+      "dependents": ["@vee-validate/zod"],
+      "owner": "FSD-CLI maintainers (ashrafmo-1)",
+      "reviewBy": "2026-11-29",
+      "reason": "@vee-validate/zod 4.15.1 (latest stable) supports only zod 3, and no zod 3 release is patched (fixed in zod 4.6.6). zod 4 support via Standard Schema exists only in vee-validate 5.0.0-beta.0.",
+      "control": "The starter itself does not import zod; only CLI-generated forms do. Do not validate untrusted, unbounded collections with zod in this app. The gate accepts only this advisory and the exact @vee-validate/zod aggregate; any other high or critical production finding fails. Migrate to zod >=4.6.6 when vee-validate 5 is stable."
+    }
+  ]
+}

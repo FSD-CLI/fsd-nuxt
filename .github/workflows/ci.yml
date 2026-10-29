@@ -24,5 +24,7 @@ jobs:
         run: git diff --check
       - name: Run checks
         run: npm run ci
-      - name: Audit production dependencies
-        run: npm audit --omit=dev
+      - name: Verify audit exception policy
+        run: npm run test:audit-policy
+      - name: Audit production dependencies (high/critical gate with owned exceptions)
+        run: npm run audit
