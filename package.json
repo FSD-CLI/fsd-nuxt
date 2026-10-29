@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^1.0.2",
-    "@tanstack/vue-query": "^5.103.1",
+    "@tanstack/vue-query": "^5.105.0",
     "@vee-validate/nuxt": "^4.15.1",
     "@vee-validate/zod": "^4.15.1",
     "nuxt": "^4.5.2",
