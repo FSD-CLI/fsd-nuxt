@@ -36,7 +36,7 @@
     "@nuxt/eslint": "^1.17.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^24.13.3",
-    "eslint": "^10.11.0",
+    "eslint": "^10.14.0",
     "husky": "^9.1.7",
     "steiger": "^0.8.1",
     "tailwindcss": "^4.3.3",
