@@ -18,7 +18,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@pinia/nuxt": "^1.0.2",
+    "@pinia/nuxt": "^1.0.3",
     "@tanstack/vue-query": "^5.107.1",
     "@vee-validate/nuxt": "^4.15.1",
     "@vee-validate/zod": "^4.15.1",
